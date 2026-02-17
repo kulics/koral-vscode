@@ -69,7 +69,7 @@
           "patterns": [
             {
               "name": "constant.character.escape.koral",
-              "match": "\\\\(?:[nrt\\\"'\\\\]|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})"
+              "match": "\\\\[ntrfv0\\\\\"']"
             },
             {
               "name": "meta.interpolation.koral",
@@ -90,7 +90,17 @@
           "patterns": [
             {
               "name": "constant.character.escape.koral",
-              "match": "\\\\(?:[nrt\\\"'\\\\]|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})"
+              "match": "\\\\[ntrfv0\\\\\"']"
+            },
+            {
+              "name": "meta.interpolation.koral",
+              "begin": "\\\\\\(",
+              "end": "\\)",
+              "patterns": [
+                {
+                  "include": "$self"
+                }
+              ]
             }
           ]
         }
@@ -108,11 +118,15 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|is|in|and|or|not)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|is|and|or|not|deref|deptr)\\b"
         },
         {
           "name": "keyword.declaration.koral",
-          "match": "\\b(?:let|mut|type|given|using|public|private|foreign|intrinsic)\\b"
+          "match": "\\b(?:let|mut|type|trait|given|using|public|private|protected|foreign|intrinsic|ref|ptr|weakref)\\b"
+        },
+        {
+          "name": "variable.language.koral",
+          "match": "\\b(?:self|super|Self)\\b"
         }
       ]
     },
@@ -132,12 +146,15 @@
       "patterns": [
         {
           "name": "meta.function.declaration.koral",
-          "match": "\\b(let)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+          "match": "\\b(let)\\s+(\\[[^\\]]*\\])?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
           "captures": {
             "1": {
               "name": "keyword.declaration.function.koral"
             },
             "2": {
+              "name": "meta.generic-params.koral"
+            },
+            "3": {
               "name": "entity.name.function.koral"
             }
           }
@@ -156,7 +173,7 @@
       "patterns": [
         {
           "name": "keyword.operator.koral",
-          "match": "(?:->|=>|\\.\\.|\\.\\.<|==|!=|<=|>=|&&|\\|\\||[+\\-*/%&|^=!<>?:.])"
+          "match": "(?:<\\.\\.<|\\.\\.<|<\\.\\.|\\.\\.\\.<|<\\.\\.\\.|\\.\\.\\.\\.|\\.\\.\\.|\\.\\.|<>|<<=|>>=|<<|>>|==|<=|>=|->|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|[+\\-*/%&|^~=<>:.])"
         }
       ]
     }
