@@ -118,11 +118,11 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|defer|is|and|or|not|deref|deptr)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|defer|is|and|or|not|deref|deptr)\\b"
         },
         {
           "name": "keyword.declaration.koral",
-          "match": "\\b(?:let|mut|type|trait|given|using|public|private|protected|foreign|intrinsic|ref|ptr|weakref)\\b"
+          "match": "\\b(?:let|const|mut|type|trait|given|using|public|private|protected|foreign|intrinsic|ref|ptr|weakref)\\b"
         },
         {
           "name": "variable.language.koral",
