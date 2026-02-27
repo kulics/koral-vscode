@@ -118,7 +118,7 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|defer|is|and|or|not|deref|deptr)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|defer|is|in|and|or|not|deref|deptr)\\b"
         },
         {
           "name": "keyword.declaration.koral",

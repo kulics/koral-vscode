@@ -27,8 +27,8 @@
 ## 打包与安装（VSIX）
 
 1. 在项目根目录执行：`npm run package`
-2. 生成文件：`koral-language-support-0.0.5.vsix`
-3. 安装命令：`code --install-extension "D:\\workspace\\koral-vscode\\koral-language-support-0.0.5.vsix" --force`
+2. 生成文件：`koral-language-support-0.0.6.vsix`
+3. 安装命令：`code --install-extension "D:\\workspace\\koral-vscode\\koral-language-support-0.0.6.vsix" --force`
 
 ## 识别验证
 
@@ -38,7 +38,7 @@
 
 ## 发布流程（最小）
 
-1. 修改 `package.json` 中的 `version`（例如 `0.0.4 -> 0.0.5`）。
+1. 修改 `package.json` 中的 `version`（例如 `0.0.5 -> 0.0.6`）。
 2. 执行：`npm run package`，确认生成对应版本的 `.vsix`。
 3. 本地安装验证：`code --install-extension "<your-vsix-path>" --force`。
 4. 如需发布到 Marketplace（已配置 publisher 与 token）：`npm run publish`。

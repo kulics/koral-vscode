@@ -2,7 +2,7 @@
   "name": "koral-language-support",
   "displayName": "Koral Language Support",
   "description": "Basic syntax highlighting support for the Koral language.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "kulics",
   "license": "MIT",
   "repository": {
