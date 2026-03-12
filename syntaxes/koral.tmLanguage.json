@@ -126,7 +126,7 @@
         },
         {
           "name": "variable.language.koral",
-          "match": "\\b(?:self|super|Self)\\b"
+          "match": "\\b(?:self|Super|Self)\\b"
         }
       ]
     },
