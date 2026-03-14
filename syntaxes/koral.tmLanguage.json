@@ -105,7 +105,7 @@
       "patterns": [
         {
           "comment": "compound keywords: and then, or else",
-          "name": "keyword.operator.logical.koral",
+          "name": "keyword.operator.word.koral",
           "match": "\\b(?:and\\s+then|or\\s+else)\\b"
         },
         {
@@ -113,16 +113,13 @@
           "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|finally|is|in)\\b"
         },
         {
-          "name": "keyword.operator.logical.koral",
-          "match": "\\b(?:and|or|not)\\b"
+          "comment": "word operators",
+          "name": "keyword.operator.word.koral",
+          "match": "\\b(?:and|or|not|ref|deref|ptr)\\b"
         },
         {
           "name": "keyword.declaration.koral",
           "match": "\\b(?:let|mut|type|trait|given|using|public|private|protected|foreign|intrinsic|as)\\b"
-        },
-        {
-          "name": "keyword.operator.reference.koral",
-          "match": "\\b(?:ref|deref|ptr|deptr|weakref)\\b"
         },
         {
           "name": "variable.language.koral",
@@ -135,6 +132,14 @@
         {
           "name": "support.type.builtin.koral",
           "match": "\\b(?:Int|UInt|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Float32|Float64|Bool|String|Void|Rune|Option|Result|List|Map|Set|Func)\\b"
+        },
+        {
+          "comment": "postfix type modifiers: Int ref, [Int]List ref, [Int ref]Option ref",
+          "name": "meta.type.postfix-modifier.koral",
+          "match": "(?:\\]|\\b[A-Z][A-Za-z0-9_]*)\\s+(weakref|ref|ptr)\\b",
+          "captures": {
+            "1": { "name": "storage.modifier.type.koral" }
+          }
         },
         {
           "name": "entity.name.type.koral",
