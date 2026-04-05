@@ -109,11 +109,19 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|finally|is|in|and|or|not|deref)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|finally|is|in)\\b"
+        },
+        {
+          "name": "keyword.operator.word.koral",
+          "match": "\\b(?:and|or|not)\\b"
         },
         {
           "name": "keyword.declaration.koral",
-          "match": "\\b(?:let|mut|type|trait|given|using|public|private|protected|foreign|intrinsic|as|ref|weakref|ptr)\\b"
+          "match": "\\b(?:let|type|trait|given|using|as)\\b"
+        },
+        {
+          "name": "storage.modifier.koral",
+          "match": "\\b(?:mut|public|private|protected|foreign|intrinsic|ref|weakref|val|ptr)\\b"
         },
         {
           "name": "variable.language.koral",
