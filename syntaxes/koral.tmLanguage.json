@@ -7,6 +7,7 @@
   "patterns": [
     { "include": "#comments" },
     { "include": "#strings" },
+    { "include": "#lifetimes" },
     { "include": "#numbers" },
     { "include": "#keywords" },
     { "include": "#types" },
@@ -30,6 +31,14 @@
           "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.koral" } },
           "end": "\\*/",
           "endCaptures": { "0": { "name": "punctuation.definition.comment.end.koral" } }
+        }
+      ]
+    },
+    "lifetimes": {
+      "patterns": [
+        {
+          "name": "entity.name.type.lifetime.koral",
+          "match": "'[a-z_][a-zA-Z0-9_]*\\b"
         }
       ]
     },
