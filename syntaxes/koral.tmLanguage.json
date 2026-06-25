@@ -6,8 +6,8 @@
   "foldingStopMarker": "^\\s*(?:\\*/|//\\s*#?endregion\\b|\\})\\s*$",
   "patterns": [
     { "include": "#comments" },
-    { "include": "#strings" },
     { "include": "#lifetimes" },
+    { "include": "#strings" },
     { "include": "#numbers" },
     { "include": "#keywords" },
     { "include": "#types" },
@@ -38,7 +38,7 @@
       "patterns": [
         {
           "name": "entity.name.type.lifetime.koral",
-          "match": "'[a-z_][a-zA-Z0-9_]*\\b"
+          "match": "'[a-z_][a-zA-Z0-9_]*(?!')\\b"
         }
       ]
     },
