@@ -5,16 +5,33 @@
   "foldingStartMarker": "^\\s*(?:/\\*|//\\s*#?region\\b|(?:let|type|given|using|if|when|while|for)\\b.*\\{\\s*$|\\{\\s*$)",
   "foldingStopMarker": "^\\s*(?:\\*/|//\\s*#?endregion\\b|\\})\\s*$",
   "patterns": [
-    { "include": "#comments" },
-    { "include": "#lifetimes" },
-    { "include": "#strings" },
-    { "include": "#numbers" },
-    { "include": "#keywords" },
-    { "include": "#types" },
-    { "include": "#functions" },
-    { "include": "#implicit-member" },
-    { "include": "#constants" },
-    { "include": "#operators" }
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#implicit-member"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#operators"
+    }
   ],
   "repository": {
     "comments": {
@@ -22,23 +39,27 @@
         {
           "name": "comment.line.double-slash.koral",
           "begin": "//",
-          "beginCaptures": { "0": { "name": "punctuation.definition.comment.koral" } },
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.koral"
+            }
+          },
           "end": "$\\n?"
         },
         {
           "name": "comment.block.koral",
           "begin": "/\\*",
-          "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.koral" } },
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.koral"
+            }
+          },
           "end": "\\*/",
-          "endCaptures": { "0": { "name": "punctuation.definition.comment.end.koral" } }
-        }
-      ]
-    },
-    "lifetimes": {
-      "patterns": [
-        {
-          "name": "entity.name.type.lifetime.koral",
-          "match": "'[a-z_][a-zA-Z0-9_]*(?!')\\b"
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.koral"
+            }
+          }
         }
       ]
     },
@@ -49,12 +70,19 @@
           "begin": "\"\"\"",
           "end": "\"\"\"",
           "patterns": [
-            { "name": "constant.character.escape.koral", "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})" },
+            {
+              "name": "constant.character.escape.koral",
+              "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})"
+            },
             {
               "name": "meta.interpolation.koral",
               "begin": "\\\\\\(",
               "end": "\\)",
-              "patterns": [{ "include": "$self" }]
+              "patterns": [
+                {
+                  "include": "$self"
+                }
+              ]
             }
           ]
         },
@@ -63,12 +91,19 @@
           "begin": "\"",
           "end": "\"",
           "patterns": [
-            { "name": "constant.character.escape.koral", "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})" },
+            {
+              "name": "constant.character.escape.koral",
+              "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})"
+            },
             {
               "name": "meta.interpolation.koral",
               "begin": "\\\\\\(",
               "end": "\\)",
-              "patterns": [{ "include": "$self" }]
+              "patterns": [
+                {
+                  "include": "$self"
+                }
+              ]
             }
           ]
         },
@@ -77,7 +112,10 @@
           "begin": "'",
           "end": "'",
           "patterns": [
-            { "name": "constant.character.escape.koral", "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})" }
+            {
+              "name": "constant.character.escape.koral",
+              "match": "\\\\(?:[ntrfv0\\\\\"']|x[0-9A-Fa-f]{2}|u\\{[0-9A-Fa-f]+\\})"
+            }
           ]
         }
       ]
@@ -86,7 +124,7 @@
       "patterns": [
         {
           "name": "constant.numeric.duration.koral",
-          "match": "\\b\\d[\\d_]*(?:h|min|ms|us|ns|s)\\b"
+          "match": "\\b\\d[\\d_]*(?:ms|us|ns|s)\\b"
         },
         {
           "name": "constant.numeric.float.koral",
@@ -118,7 +156,7 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|defer|is|in)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|defer|is|in)\\b"
         },
         {
           "name": "keyword.operator.word.koral",
@@ -130,11 +168,11 @@
         },
         {
           "name": "storage.modifier.koral",
-          "match": "\\b(?:mut|public|private|protected|foreign|intrinsic|ref|weakref|val|ptr)\\b"
+          "match": "\\b(?:mutable|public|private|protected|foreign|intrinsic|unsafe)\\b"
         },
         {
           "name": "variable.language.koral",
-          "match": "\\b(?:self|it|Super|Self)\\b"
+          "match": "\\b(?:self|it|Self)\\b"
         }
       ]
     },
@@ -156,9 +194,15 @@
           "name": "meta.function.declaration.koral",
           "match": "\\b(let)\\s+(\\[[^\\]]*\\])?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
           "captures": {
-            "1": { "name": "keyword.declaration.function.koral" },
-            "2": { "name": "meta.generic-params.koral" },
-            "3": { "name": "entity.name.function.koral" }
+            "1": {
+              "name": "keyword.declaration.function.koral"
+            },
+            "2": {
+              "name": "meta.generic-params.koral"
+            },
+            "3": {
+              "name": "entity.name.function.koral"
+            }
           }
         }
       ]
@@ -175,7 +219,7 @@
       "patterns": [
         {
           "name": "keyword.operator.range.koral",
-          "match": "\\.\\.\\.\\.|<\\.\\.\\.|\\.\\.\\.<|<\\.\\.<|\\.\\.<|<\\.\\.|\\.\\.\\.|\\.\\.(?![.])"
+          "match": "<\\.\\.<|<\\.\\.|\\.\\.<|\\.\\.(?![.<])"
         },
         {
           "name": "keyword.operator.arrow.koral",
