@@ -156,7 +156,7 @@
       "patterns": [
         {
           "name": "keyword.control.koral",
-          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|defer|is|in)\\b"
+          "match": "\\b(?:if|then|else|when|while|for|break|continue|return|yield|defer|is|in)\\b"
         },
         {
           "name": "keyword.operator.word.koral",
@@ -178,6 +178,26 @@
     },
     "types": {
       "patterns": [
+        {
+          "name": "meta.type.function.koral",
+          "begin": "\\bFunc\\s*\\(",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.type.parameters.begin.koral"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.type.parameters.end.koral"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#types"
+            }
+          ]
+        },
         {
           "name": "support.type.builtin.koral",
           "match": "\\b(?:Int|UInt|Int8|UInt8|Int16|UInt16|Int32|UInt32|Int64|UInt64|Float32|Float64|Bool|String|Void|Rune|Option|Result|List|Dict|Set|Func)\\b"
@@ -248,6 +268,10 @@
         {
           "name": "punctuation.accessor.koral",
           "match": "(?<=[A-Za-z0-9_\\]\\)])\\."
+        },
+        {
+          "name": "keyword.operator.unsafe-deref.koral",
+          "match": "\\bunsafe\\s*\\*"
         }
       ]
     }
